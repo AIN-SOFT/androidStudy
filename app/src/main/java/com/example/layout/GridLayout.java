@@ -34,14 +34,14 @@ public class GridLayout extends AppCompatActivity {
 
 
     public void calculate(View view) {
-        Button button=(Button) view  ;
-        if (flag){
-            inputStr="";
+        Button button = (Button) view;
+        if (flag) {
+            inputStr = "";
             tvInput.setText(inputStr);
             tvResult.setText("0");
-            flag=!flag;
+            flag = !flag;
         }
-        switch (view.getId()){
+        switch (view.getId()) {
             case R.id.btn_0:
             case R.id.btn_00:
             case R.id.btn_1:
@@ -56,38 +56,40 @@ public class GridLayout extends AppCompatActivity {
             case R.id.btn_dian:
             case R.id.btn_jia:
             case R.id.btn_jian:
-                inputStr+=button.getText().toString();
-                express+=button.getText().toString();
+                inputStr += button.getText().toString();
+                express += button.getText().toString();
                 break;
             case R.id.btn_cheng:
-                inputStr+=button.getText().toString();
-                express+="*";
+                inputStr += button.getText().toString();
+                express += "*";
                 break;
             case R.id.btn_chu:
-                inputStr+=button.getText().toString();
-                express+="/";
+                inputStr += button.getText().toString();
+                express += "/";
                 break;
             case R.id.btn_c:
-                inputStr="";
-                express="";
-                break;
-            case R.id.btn_deng:
-                if (express.length()>0){
-                    Long result=(Long) AviatorEvaluator.execute(express);
-                }
-                flag=true;
-                express="";
+                inputStr = "";
+                express = "";
                 break;
             case R.id.btn_del:
-                if (inputStr.length()>0){
-                    inputStr=inputStr.substring(0,inputStr.length()-1);
-                    express=express.substring(0,express.length()-1);
+                if (inputStr.length() > 0) {
+                    inputStr = inputStr.substring(0, inputStr.length() - 1);
+                    express = express.substring(0, express.length() - 1);
                 }
             case R.id.btn_qu:
-                if(tvResult.length()>0){
-                    long temp =Long.parseLong(tvResult.getText().toString());
-                    tvResult.setText(String.valueOf(temp*0.01));
+                if (tvResult.length() > 0) {
+                    long temp = Long.parseLong(tvResult.getText().toString());
+                    tvResult.setText(String.valueOf(temp * 0.01));
                 }
+                break;
+            case R.id.btn_deng:
+                if (express.length() > 0) {
+                    Long result = (Long) AviatorEvaluator.execute(express);
+                    tvResult.setText(String.valueOf(result * 1));
+                    
+                }
+                flag = true;
+                express = "";
                 break;
         }
         tvInput.setText(inputStr);

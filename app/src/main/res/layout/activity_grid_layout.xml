@@ -4,14 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".GridLayout">
+    android:orientation="vertical">
 
 
     <TextView
         android:id="@+id/tv_input"
         android:layout_width="match_parent"
-        android:layout_height="140dp" />
+        android:layout_height="140dp"
+        android:textAlignment="textEnd"
+        android:textSize="60dp" />
 
     <TextView
         android:layout_width="match_parent"
@@ -125,7 +126,7 @@
             android:layout_margin="4dp"
             android:background="#696969"
             android:onClick="calculate"
-            android:text="X"
+            android:text="x"
             android:textColor="#fff"
             android:textSize="25dp" />
 
